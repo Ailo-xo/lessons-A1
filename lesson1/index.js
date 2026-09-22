@@ -19,9 +19,17 @@
 // let name = prompt("what is your name?");
 // alert(name)
 
-let user = "Aiperi";
-user = "Ailo"
-console.log(user);
+// let user = "Aiperi";
+// user = "Ailo"
+// console.log(user);
 
-const user2 = "Aiperi";
-console.log(user2);
+// const user2 = "Aiperi";
+// console.log(user2);
+
+let name = prompt("Атынызды жазыныз");
+alert(name)
+
+let old = prompt("Жашынызды жазыныз");
+alert(old)
+
+console.log("Саламатсызбы Айпери, жашыныз 17");
