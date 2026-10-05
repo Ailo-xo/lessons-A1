@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    background-color: cornflowerblue;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 280px;
+}
+
+#display{
+    font-size: 48px;
+    font-weight: bold;
+    color: blue;
+    margin-bottom: 25px;
+    font-family: monospace;
+}
+
+button{
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.tap1, #start-btn{
+    background-color: blue;
+    color: white;
+}
+
+.tap1:hover, #start-btn:hover{
+    background-color: aqua;
+}
+.tap2{
+    background-color: blue;
+    color: white;
+}
+.tap3{
+    background-color: blue;
+    color: white;
+}
+button:active{
+    transform: translateY(0);
+}
