@@ -1,0 +1,18 @@
+/* :active{
+    color: aqua;
+} */
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.red { background-color: red; color: white; }
+.blue { background-color: blue; color: white; }
+.green { background-color: green; color: white; }
+.yellow { background-color: yellow; color: black; }
+.purple { background-color: purple; color: white; }
