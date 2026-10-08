@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORTAL CALCULATOR — Test Your Math</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cinzel+Decorative:wght@700;900&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Слои атмосферы -->
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="fog" aria-hidden="true"></div>
+
+    <!-- Летящие искры -->
+    <div class="embers" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <main class="arena">
+
+        <!-- Заголовок -->
+        <header class="title-block">
+            <div class="dragon">🐉</div>
+            <h1 class="game-title">
+                <span class="word">MORTAL</span>
+                <span class="word">CALCULATOR</span>
+            </h1>
+            <p class="subtitle">⚔ TEST YOUR MATH ⚔</p>
+            <p class="tagline-ru">БЕЙ ПО ЦИФРАМ. БЕЗ ПОЩАДЫ.</p>
+        </header>
+
+        <!-- Автомат -->
+        <section class="cabinet">
+
+            <!-- Полосы здоровья как в файтинге -->
+            <div class="health-bars">
+                <div class="hp-side">
+                    <span class="hp-name">PLAYER 1</span>
+                    <div class="hp-track"><div class="hp-fill hp-fill--p1"></div></div>
+                </div>
+                <div class="hp-vs">VS</div>
+                <div class="hp-side hp-side--right">
+                    <span class="hp-name">CPU</span>
+                    <div class="hp-track"><div class="hp-fill hp-fill--p2"></div></div>
+                </div>
+            </div>
+
+            <!-- Экран -->
+            <div class="screen">
+                <div class="screen-glare"></div>
+                <div id="previous"></div>
+                <div id="current">0</div>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="pad">
+                <button class="key action" data-action="clear">AC</button>
+                <button class="key action" data-action="delete">⌫</button>
+                <button class="key action" data-action="percent">%</button>
+                <button class="key operator">÷</button>
+
+                <button class="key number">7</button>
+                <button class="key number">8</button>
+                <button class="key number">9</button>
+                <button class="key operator">×</button>
+
+                <button class="key number">4</button>
+                <button class="key number">5</button>
+                <button class="key number">6</button>
+                <button class="key operator">−</button>
+
+                <button class="key number">1</button>
+                <button class="key number">2</button>
+                <button class="key number">3</button>
+                <button class="key operator">+</button>
+
+                <button class="key action" data-action="sign">±</button>
+                <button class="key number">0</button>
+                <button class="key number">.</button>
+                <button class="key equals" data-action="equals">=</button>
+            </div>
+
+            <!-- Низ автомата -->
+            <div class="cabinet-footer">
+                <span class="coin-slot"></span>
+                <span class="insert-coin">INSERT COIN</span>
+                <span class="coin-slot"></span>
+            </div>
+
+            <div class="flawless">★ FLAWLESS VICTORY ★</div>
+        </section>
+
+    </main>
+
+    <script>
+        let current = "";
+        let operator = "";
+        let first = "";
+
+        const display = document.getElementById("current");
+        const previous = document.getElementById("previous");
+
+        document.querySelectorAll(".number").forEach(btn => {
+            btn.onclick = () => {
+                current += btn.textContent;
+                display.textContent = current;
+            };
+        });
+
+        document.querySelectorAll(".operator").forEach(btn => {
+            btn.onclick = () => {
+                first = current;
+                operator = btn.textContent;
+                current = "";
+                previous.textContent = first + " " + operator;
+            };
+        });
+
+        document.querySelector('[data-action="equals"]').onclick = () => {
+            let a = Number(first);
+            let b = Number(current);
+            let result;
+
+            if (operator === "+") result = a + b;
+            if (operator === "−") result = a - b;
+            if (operator === "×") result = a * b;
+            if (operator === "÷") result = b === 0 ? "Ошибка" : a / b;
+
+            current = result;
+            display.textContent = result;
+        };
+
+        document.querySelector('[data-action="clear"]').onclick = () => {
+            current = "";
+            first = "";
+            operator = "";
+            display.textContent = "0";
+            previous.textContent = "";
+        };
+
+        document.querySelector('[data-action="delete"]').onclick = () => {
+            current = current.slice(0, -1);
+            display.textContent = current || "0";
+        };
+
+        document.querySelector('[data-action="percent"]').onclick = () => {
+            current = Number(current) / 100;
+            display.textContent = current;
+        };
+
+        document.querySelector('[data-action="sign"]').onclick = () => {
+            current = -Number(current);
+            display.textContent = current;
+        };
+    </script>
+</body>
+</html>
