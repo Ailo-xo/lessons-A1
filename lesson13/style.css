@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column; /* Гарантирует вертикальное расположение блоков */
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 500px;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    margin-bottom: 20px; /* Отступ между блоками */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#number, #name {
+    width: 150px;
+    padding: 10px 15px;
+    border: 2px solid #a09898;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    font-size: 15px;
+    padding: 10px 25px;
+    width: 120px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+#shapeOutput {
+    margin-top: 15px;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shape {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+}
+
+.oval {
+    border-radius: 50%;
+    background-color: red; 
+}
+
+.square {
+    border-radius: 0;
+    background-color: green; 
+}
+
+.aval {
+    border-radius: 250px;
+    background-color: blue; 
+}
+
+#nameOutput {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+    min-height: 24px;
+}
